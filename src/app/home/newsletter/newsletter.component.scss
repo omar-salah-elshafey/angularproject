@@ -1,0 +1,26 @@
+.newsletter-signup {
+  padding: 20px;
+  background-color: #eef;
+  text-align: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input[type="email"] {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 300px;
+    }
+    button[type="submit"] {
+      background-color: #007bff;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}

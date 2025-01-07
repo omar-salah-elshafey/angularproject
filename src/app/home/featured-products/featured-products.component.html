@@ -1,0 +1,26 @@
+<section class="featured-products">
+  <div class="product-category">
+    <h2>Featured Phones</h2>
+    <div class="product-grid">
+      <div class="product-item" *ngFor="let phone of phones">
+        <img [src]="phone.image" [alt]="phone.name" />
+        <h3>{{ phone.name }}</h3>
+        <p>${{ phone.price }}</p>
+        <a routerLink="/products" class="btn">Buy Now</a>
+      </div>
+    </div>
+    <a routerLink="/products" class="btn">Discover More Phones</a>
+  </div>
+  <div class="product-category">
+    <h2>Featured Tablets</h2>
+    <div class="product-grid">
+      <div class="product-item" *ngFor="let tablet of tablets">
+        <img [src]="tablet.image" [alt]="tablet.name" />
+        <h3>{{ tablet.name }}</h3>
+        <p>${{ tablet.price }}</p>
+        <a routerLink="/products" class="btn">Buy Now</a>
+      </div>
+    </div>
+    <a routerLink="/products" class="btn">Discover More Tablets</a>
+  </div>
+</section>

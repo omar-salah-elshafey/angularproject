@@ -1,0 +1,33 @@
+.landing {
+  background-image: url("../../../assets/images/landing.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  text-align: center;
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  h1 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+  p {
+    font-size: 1.1rem;
+    color: #fff;
+    z-index: 1;
+  }
+}
