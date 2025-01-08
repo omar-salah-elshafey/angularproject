@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Product, ProductService } from '../services/product/product.service';
 
 @Component({
   selector: 'app-products',
@@ -9,10 +10,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })
-export class ProductsComponent {
-  products = [
-    { id: 1, name: 'Smartphone A', price: 599 },
-    { id: 2, name: 'Tablet B', price: 799 },
-    { id: 3, name: 'Smartwatch C', price: 199 },
-  ];
+export class ProductsComponent implements OnInit {
+  products: Product[] = [];
+
+  constructor(private productService: ProductService) {}
+
+  ngOnInit() {
+    this.products = this.productService.getProducts();
+  }
+
+  selectProduct(product: Product) {
+    this.productService.setSelectedProduct(product);
+  }
 }

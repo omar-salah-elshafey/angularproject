@@ -33,35 +33,23 @@ header {
           }
         }
       }
+      #cart {
+        position: relative;
+        #cart-count {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background-color: #007bffa3;
+          border-radius: 50%;
+          color: #f8f9fa;
+          top: -10px;
+          right: -5px;
+          font-size: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
     }
   }
 }
-
-// header {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 1rem;
-//   background-color: #333;
-//   color: #fff;
-
-//   nav {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     ul {
-//     display: flex;
-//     list-style: none;
-//     gap: 1rem;
-
-//     li a {
-//       text-decoration: none;
-//       color: #fff;
-//       transition: color 0.3s;
-
-//       &:hover {
-//         color: #00bcd4;
-//       }
-//     }
-//   }}
-// }

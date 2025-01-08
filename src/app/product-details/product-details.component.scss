@@ -1,0 +1,47 @@
+.container {
+  width: 80%;
+  margin: 10px auto 0;
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .details {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    img {
+      max-width: 300px;
+      width: 100%;
+      max-height: 400px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .text{
+      text-align: center;
+    }
+    h2 {
+      font-size: 2rem;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #555;
+      margin: 10px 0;
+    }
+  }
+}
+
+#notFound {
+  font-size: 1.5rem;
+  color: #ff4d4d; // Red for emphasis
+  margin-top: 20px;
+}

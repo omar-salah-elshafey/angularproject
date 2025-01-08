@@ -1,2 +1,15 @@
-<h1>Product Details</h1>
-<p>Product ID: {{ productId }}</p>
+<div class="container">
+  <h1>Product Details</h1>
+  <div class="details" *ngIf="product; else notFound">
+    <img [src]="product.image" [alt]="product.name" />
+    <div class="text">
+      <h2>{{ product.name }}</h2>
+      <p>Price: ${{ product.price }}</p>
+      <p>{{ product.description }}</p>
+      <button class="btn" (click)="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+  <ng-template #notFound>
+    <p>Product not found.</p>
+  </ng-template>
+</div>
