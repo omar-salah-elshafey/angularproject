@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Product, ProductService } from '../services/product/product.service';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../services/cart/cart.service';
+import { FormsModule } from '@angular/forms';
+// import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss',
 })
@@ -16,18 +17,19 @@ export class ProductDetailsComponent implements OnInit {
   quantity: number = 1;
 
   constructor(
-    private route: ActivatedRoute,
     private cartService: CartService,
-    private productService: ProductService
+    private productService: ProductService,
   ) {}
 
   ngOnInit() {
     this.product = this.productService.getSelectedProduct();
   }
   addToCart() {
-    if (this.product) {
-      this.cartService.addToCart(this.product);
-      alert(`${this.product.name} has been added to your cart!`);
+    if (this.product && this.quantity > 0) {
+      this.cartService.addToCart(this.product, this.quantity);
+      alert(
+        `${this.product.name} (${this.quantity} pcs) has been added to your cart!`
+      );
     }
   }
 }

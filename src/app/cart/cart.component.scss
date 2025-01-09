@@ -17,6 +17,9 @@
       background-color: #f4f4f4;
       font-weight: bold;
     }
+    input {
+      max-width: 40px;
+    }
     .product {
       display: flex;
       flex-direction: column;

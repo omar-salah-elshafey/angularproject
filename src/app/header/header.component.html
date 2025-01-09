@@ -1,18 +1,28 @@
 <header>
+  <div class="logo">
+    <!-- <h1><a routerLink="/">Smart Devices Store</a></h1> -->
+    <a routerLink="/"><img src="../../assets/img/logo2.png" alt="" /></a>
+  </div>
   <nav>
-    <div class="logo">
-      <h1><a routerLink="/">Smart Devices Store</a></h1>
-    </div>
-    <ul>
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/products">Products</a></li>
-      <li><a routerLink="/about">About</a></li>
-      <li><a routerLink="/contact">Contact</a></li>
-      <li>
-        <a routerLink="/cart" id="cart"
-          >Cart<i class="fa fa-shopping-cart"></i
-          ><span id="cart-count">0</span></a
-        >
+    <span class="icon" id="menu-icon" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <ul id="nav-menu" [class.show]="isMenuOpen">
+      <li (click)="isMenuOpen = false"><a routerLink="/">Home</a></li>
+      <li (click)="isMenuOpen = false">
+        <a routerLink="/products">Products</a>
+      </li>
+      <li (click)="isMenuOpen = false"><a routerLink="/about">About</a></li>
+      <li (click)="isMenuOpen = false"><a routerLink="/contact">Contact</a></li>
+      <li (click)="isMenuOpen = false">
+        <a routerLink="/cart">
+          Cart
+          <i id="cart" class="fa fa-shopping-cart">
+            <span id="cart-count">{{ cartCount }}</span>
+          </i>
+        </a>
       </li>
     </ul>
   </nav>

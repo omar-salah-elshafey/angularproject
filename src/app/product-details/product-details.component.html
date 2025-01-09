@@ -6,6 +6,10 @@
       <h2>{{ product.name }}</h2>
       <p>Price: ${{ product.price }}</p>
       <p>{{ product.description }}</p>
+      <div>
+        <label for="quantity">Quantity:</label>
+        <input id="quantity" type="number" [(ngModel)]="quantity" min="1" />
+      </div>
       <button class="btn" (click)="addToCart()">Add to Cart</button>
     </div>
   </div>

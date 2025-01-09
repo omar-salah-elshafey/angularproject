@@ -7,13 +7,29 @@
         <tr>
           <th>Product</th>
           <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of cartItems; let i = index">
-          <td><span class="product"><img [src]="item.image" [alt]="item.name" /> {{ item.name }}</span></td>
-          <td>${{ item.price }}</td>
+          <td>
+            <span class="product"
+              ><img [src]="item.product.image" [alt]="item.product.name" />
+              {{ item.product.name }}</span
+            >
+          </td>
+          <td>${{ item.product.price }}</td>
+          <td>
+            <input
+              type="number"
+              [(ngModel)]="item.quantity"
+              (change)="updateQuantity(i, item.quantity)"
+              min="1"
+            />
+          </td>
+          <td>${{ item.product.price * item.quantity }}</td>
           <td>
             <button (click)="removeItem(i)">Remove</button>
           </td>
