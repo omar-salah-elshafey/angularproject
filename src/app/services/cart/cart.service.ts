@@ -12,6 +12,10 @@ export class CartService {
   private cartItems: CartItem[] = [];
   private cartCountSubject = new BehaviorSubject<number>(0);
 
+  constructor() {
+    this.loadCartFromLocalStorage();
+  }
+
   addToCart(product: Product, quantity: number) {
     const existingItem = this.cartItems.find(
       (item) => item.product.productId === product.productId
@@ -21,6 +25,7 @@ export class CartService {
     } else {
       this.cartItems.push({ product, quantity });
     }
+    this.saveCartToLocalStorage();
     this.updateCartCount();
   }
 
@@ -30,11 +35,13 @@ export class CartService {
     } else {
       this.removeFromCart(index); // Remove the item if quantity is set to 0
     }
+    this.saveCartToLocalStorage();
     this.updateCartCount();
   }
 
   removeFromCart(index: number) {
     this.cartItems.splice(index, 1);
+    this.saveCartToLocalStorage();
     this.updateCartCount();
   }
 
@@ -63,8 +70,19 @@ export class CartService {
 
   clearCart() {
     this.cartItems = [];
+    this.saveCartToLocalStorage();
     this.cartCountSubject.next(0);
   }
 
-  constructor() {}
+  private saveCartToLocalStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+  }
+
+  private loadCartFromLocalStorage() {
+    const storedCart = localStorage.getItem('cartItems');
+    if (storedCart) {
+      this.cartItems = JSON.parse(storedCart);
+      this.updateCartCount();
+    }
+  }
 }
