@@ -19,6 +19,7 @@ export class ProductManagementComponent {
     price: 0,
     description: '',
     stock: 0,
+    featured: false,
   };
 
   editedProduct: Product = {
@@ -27,6 +28,7 @@ export class ProductManagementComponent {
     price: 0,
     description: '',
     stock: 0,
+    featured: false,
   };
 
   isEditing: boolean = false;
@@ -40,15 +42,6 @@ export class ProductManagementComponent {
 
   loadProducts() {
     this.products = this.productService.getProducts();
-  }
-
-  loadProductsFromStorage() {
-    const storedProducts = localStorage.getItem('products');
-    this.products = storedProducts ? JSON.parse(storedProducts) : [];
-  }
-
-  saveProductsToStorage() {
-    localStorage.setItem('products', JSON.stringify(this.products));
   }
 
   handleImageChange(event: Event, isEditing: boolean = false) {
@@ -79,9 +72,8 @@ export class ProductManagementComponent {
       this.newProduct.stock !== undefined
     ) {
       this.productService.addProduct(this.newProduct);
-      this.loadProducts();
-      this.saveProductsToStorage();
       this.resetForm();
+      this.loadProducts();
     }
   }
 
@@ -94,15 +86,14 @@ export class ProductManagementComponent {
   updateProduct() {
     if (this.editedProduct) {
       this.productService.updateProduct(this.editedProduct);
-      this.loadProducts();
-      this.saveProductsToStorage();
       this.cancelEdit();
+      this.loadProducts();
     }
   }
 
   deleteProduct(productId: number) {
-    this.products = this.products.filter((p) => p.productId !== productId);
-    this.saveProductsToStorage();
+    this.productService.deleteProduct(productId);
+    this.loadProducts();
   }
 
   cancelEdit() {
@@ -117,6 +108,7 @@ export class ProductManagementComponent {
       description: '',
       image: '',
       stock: 0,
+      featured: false,
     };
   }
 
@@ -127,6 +119,7 @@ export class ProductManagementComponent {
       price: 0,
       description: '',
       stock: 0,
+      featured: false,
     };
     this.newImage = null;
   }

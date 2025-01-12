@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CartService } from '../cart/cart.service';
 
 export interface Product {
   productId: number;
@@ -156,12 +157,34 @@ export class ProductService {
     },
   ];
 
-  constructor() {}
+  constructor(private cartService: CartService) {
+    this.initializeProducts();
+  }
+  private initializeProducts() {
+    const storedProducts = localStorage.getItem('products');
+    if (storedProducts) {
+      this.products = JSON.parse(storedProducts);
+    } else {
+      this.saveProductsToStorage(); // Save the hardcoded products initially.
+    }
+  }
+  loadProductsFromStorage() {
+    const storedProducts = localStorage.getItem('products');
+    this.products = storedProducts ? JSON.parse(storedProducts) : [];
+  }
+
+  saveProductsToStorage() {
+    localStorage.setItem('products', JSON.stringify(this.products));
+  }
 
   private selectedProduct: Product | null = null;
 
   getProducts(): Product[] {
     return this.products;
+  }
+
+  getFeaturedProducts(): Product[] {
+    return this.products.filter((product) => product.featured);
   }
 
   setSelectedProduct(product: Product) {
@@ -177,6 +200,7 @@ export class ProductService {
       ? Math.max(...this.products.map((p) => p.productId)) + 1
       : 1;
     this.products.push({ ...product, productId: newProductId });
+    this.saveProductsToStorage();
   }
 
   updateProduct(updatedProduct: Product): void {
@@ -186,11 +210,14 @@ export class ProductService {
     if (index !== -1) {
       this.products[index] = { ...updatedProduct };
     }
+    this.saveProductsToStorage();
   }
 
   deleteProduct(productId: number): void {
     this.products = this.products.filter(
       (product) => product.productId !== productId
     );
+    this.saveProductsToStorage();
+    this.cartService.removeProductFromCartById(productId);
   }
 }

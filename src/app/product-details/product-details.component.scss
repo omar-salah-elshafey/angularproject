@@ -1,6 +1,5 @@
 .container {
   width: 80%;
-  margin: 10px auto 0;
   text-align: center;
   padding: 20px;
   background-color: #f9f9f9;
@@ -24,7 +23,7 @@
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    .text{
+    .text {
       text-align: center;
       flex: 1;
     }
@@ -45,4 +44,22 @@
   font-size: 1.5rem;
   color: #ff4d4d; // Red for emphasis
   margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  .details {
+    flex-direction: column;
+    h2 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+    input {
+      max-width: 100%;
+    }
+  }
 }

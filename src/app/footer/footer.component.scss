@@ -17,3 +17,10 @@ footer {
     }
   }
 }
+@media (max-width: 576px) {
+  footer{
+    p{
+      font-size: 0.8rem;
+    }
+  }
+}

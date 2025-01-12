@@ -85,4 +85,12 @@ export class CartService {
       this.updateCartCount();
     }
   }
+
+  removeProductFromCartById(productId: number) {
+    this.cartItems = this.cartItems.filter(
+      (item) => item.product.productId !== productId
+    );
+    this.saveCartToLocalStorage();
+    this.updateCartCount();
+  }
 }
