@@ -16,9 +16,18 @@ export class ProductDetailsComponent implements OnInit {
   product: Product | null = null;
   quantity: number = 1;
 
+  validateQuantity() {
+    const maxStock = this.product?.stock ?? 0;
+    if (this.quantity > maxStock) {
+      this.quantity = maxStock;
+    } else if (this.quantity < 1) {
+      this.quantity = 1;
+    }
+  }
+
   constructor(
     private cartService: CartService,
-    private productService: ProductService,
+    private productService: ProductService
   ) {}
 
   ngOnInit() {

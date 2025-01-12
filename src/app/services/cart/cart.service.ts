@@ -20,10 +20,15 @@ export class CartService {
     const existingItem = this.cartItems.find(
       (item) => item.product.productId === product.productId
     );
+    const productStock = product.stock ?? 0;
     if (existingItem) {
-      existingItem.quantity += quantity; // Increase the quantity if the product exists in the cart
+      const currentQuantity = existingItem.quantity ?? 0;
+      const newQuantity = existingItem.quantity + quantity;
+      existingItem.quantity =
+        newQuantity > productStock ? productStock : newQuantity;
     } else {
-      this.cartItems.push({ product, quantity });
+      const quantityToAdd = quantity > productStock  ? productStock  : quantity;
+      this.cartItems.push({ product, quantity: quantityToAdd });
     }
     this.saveCartToLocalStorage();
     this.updateCartCount();

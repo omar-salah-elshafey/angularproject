@@ -6,8 +6,10 @@
           <img [src]="product.image" [alt]="product.name" />
           <h3>{{ product.name }}</h3>
           <p>${{ product.price }}</p>
+          <p *ngIf="product.stock === 0" class="out-of-stock">Out of Stock</p>
           <a
             [routerLink]="['/product-details', product.productId]"
+            [class.disabled]="product.stock === 0"
             (click)="selectProduct(product)"
             class="btn"
             >View Details</a

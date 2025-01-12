@@ -27,6 +27,7 @@
               [(ngModel)]="item.quantity"
               (change)="updateQuantity(i, item.quantity)"
               min="1"
+              [max]="item.product.stock ?? 0"
             />
           </td>
           <td>${{ item.product.price * item.quantity }}</td>

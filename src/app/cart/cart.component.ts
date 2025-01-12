@@ -23,6 +23,16 @@ export class CartComponent implements OnInit {
     this.totalPrice = this.cartService.getTotalPrice();
   }
 
+  validateQuantity(quantity: number, stock: number | undefined): number {
+    const maxStock = stock ?? 0;
+    if (quantity > maxStock) {
+      return maxStock;
+    } else if (quantity < 1) {
+      return 1;
+    }
+    return quantity;
+  }
+
   removeItem(index: number) {
     this.cartService.removeFromCart(index);
     this.cartItems = this.cartService.getCartItems();
@@ -30,7 +40,13 @@ export class CartComponent implements OnInit {
   }
 
   updateQuantity(index: number, quantity: number) {
-    this.cartService.updateQuantity(index, quantity);
+    const validatedQuantity = this.validateQuantity(
+      quantity,
+      this.cartItems[index].product.stock
+    );
+    this.cartItems[index].quantity = validatedQuantity;
+
+    this.cartService.updateQuantity(index, validatedQuantity);
     this.cartItems = this.cartService.getCartItems();
     this.totalPrice = this.cartService.getTotalPrice();
   }

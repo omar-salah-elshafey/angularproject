@@ -76,6 +76,21 @@ a {
   }
 }
 
+.out-of-stock {
+  color: red;
+  font-weight: bold;
+}
+button[disabled] {
+  background-color: grey;
+  cursor: not-allowed;
+}
+a.btn.disabled {
+  pointer-events: none;
+  background-color: grey;
+  color: white;
+  cursor: not-allowed;
+}
+
 @media (max-width: 576px) {
   .product-grid {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));

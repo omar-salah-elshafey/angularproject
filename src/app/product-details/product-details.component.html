@@ -8,9 +8,22 @@
       <p>{{ product.description }}</p>
       <div>
         <label for="quantity">Quantity:</label>
-        <input id="quantity" type="number" [(ngModel)]="quantity" min="1" />
+        <input
+          id="quantity"
+          type="number"
+          [(ngModel)]="quantity"
+          min="1"
+          [max]="product.stock ?? 0"
+          (change)="validateQuantity()"
+        />
       </div>
-      <button class="btn" (click)="addToCart()">Add to Cart</button>
+      <button
+        class="btn"
+        (click)="addToCart()"
+        [disabled]="quantity < 1 || quantity > (product.stock ?? 0)"
+      >
+        Add to Cart
+      </button>
     </div>
   </div>
   <ng-template #notFound>

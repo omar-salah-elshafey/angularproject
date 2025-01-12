@@ -19,6 +19,10 @@ export class ProductsComponent implements OnInit {
     this.products = this.productService.getProducts();
   }
 
+  isOutOfStock(product: Product): boolean {
+    return product.stock === 0; // Check if a product is out of stock
+  }
+
   selectProduct(product: Product) {
     this.productService.setSelectedProduct(product);
   }
