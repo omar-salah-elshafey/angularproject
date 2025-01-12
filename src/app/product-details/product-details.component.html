@@ -13,14 +13,14 @@
           type="number"
           [(ngModel)]="quantity"
           min="1"
-          [max]="product.stock ?? 0"
+          [max]="product.stock"
           (change)="validateQuantity()"
         />
       </div>
       <button
         class="btn"
         (click)="addToCart()"
-        [disabled]="quantity < 1 || quantity > (product.stock ?? 0)"
+        [disabled]="quantity < 1 || quantity > product.stock"
       >
         Add to Cart
       </button>
