@@ -22,12 +22,11 @@ export class CartService {
     );
     const productStock = product.stock ?? 0;
     if (existingItem) {
-      const currentQuantity = existingItem.quantity ?? 0;
       const newQuantity = existingItem.quantity + quantity;
       existingItem.quantity =
         newQuantity > productStock ? productStock : newQuantity;
     } else {
-      const quantityToAdd = quantity > productStock  ? productStock  : quantity;
+      const quantityToAdd = quantity > productStock ? productStock : quantity;
       this.cartItems.push({ product, quantity: quantityToAdd });
     }
     this.saveCartToLocalStorage();
