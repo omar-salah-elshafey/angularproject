@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="product-management">
+    <h2>Manage Products</h2>
+
+    <!-- Add Product Form -->
+    <form (ngSubmit)="addProduct()" #productForm="ngForm">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="newProduct.name"
+        name="name"
+        required
+      />
+
+      <label for="price">Price:</label>
+      <input
+        type="number"
+        id="price"
+        [(ngModel)]="newProduct.price"
+        name="price"
+        required
+      />
+
+      <label for="description">Description:</label>
+      <textarea
+        id="description"
+        [(ngModel)]="newProduct.description"
+        name="description"
+      ></textarea>
+
+      <label for="image">Upload Image:</label>
+      <input type="file" id="image" (change)="handleImageChange($event)" />
+
+      <label for="stock">Stock Quantity:</label>
+      <input
+        type="number"
+        id="stock"
+        [(ngModel)]="newProduct.stock"
+        name="stock"
+        required
+      />
+
+      <button type="submit">Add Product</button>
+    </form>
+
+    <hr />
+
+    <!-- Product List -->
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; let i = index">
+          <td><img [src]="product.image" alt="Product Image" width="50" /></td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.stock }}</td>
+          <td>
+            <button (click)="editProduct(product)">Edit</button>
+            <button (click)="deleteProduct(product.productId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Edit Product Modal -->
+    <div *ngIf="isEditing">
+      <h3>Edit Product</h3>
+      <form (ngSubmit)="updateProduct()" #editForm="ngForm">
+        <label for="editName">Name:</label>
+        <input
+          type="text"
+          id="editName"
+          [(ngModel)]="editedProduct.name"
+          name="editName"
+          required
+        />
+
+        <label for="editPrice">Price:</label>
+        <input
+          type="number"
+          id="editPrice"
+          [(ngModel)]="editedProduct.price"
+          name="editPrice"
+          required
+        />
+
+        <label for="editDescription">Description:</label>
+        <textarea
+          id="editDescription"
+          [(ngModel)]="editedProduct.description"
+          name="editDescription"
+        ></textarea>
+
+        <label for="editImage">Upload New Image:</label>
+        <input
+          type="file"
+          id="editImage"
+          (change)="handleImageChange($event, true)"
+        />
+
+        <label for="editStock">Stock Quantity:</label>
+        <input
+          type="number"
+          id="editStock"
+          [(ngModel)]="editedProduct.stock"
+          name="editStock"
+          required
+        />
+
+        <button type="submit">Update</button>
+        <button type="button" (click)="cancelEdit()">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>
