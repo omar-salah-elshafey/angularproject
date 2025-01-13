@@ -46,6 +46,15 @@ The project is deployed on Netlify. View the live version here: [Smart Devices S
 3. Add to Cart: Adjust quantity and add items to your cart.
 4. Manage Cart: Update quantities, remove items, or clear the entire cart.
 5. Checkout: Enter valid email and phone number to complete your order.
+##
+ScreenShots:
+![screencapture-smart-devices-store-netlify-app-2025-01-13-13_17_38](https://github.com/user-attachments/assets/e7bec495-b6f1-4fd5-9586-2b43f35bcf29)
+![screencapture-smart-devices-store-netlify-app-products-2025-01-13-13_18_18](https://github.com/user-attachments/assets/edfd4db0-ffa3-47cd-a1a6-137878bbde8f)
+![screencapture-smart-devices-store-netlify-app-about-2025-01-13-13_18_30](https://github.com/user-attachments/assets/c3dab7fd-aefa-46ef-9a69-339db7de4eaa)
+![screencapture-smart-devices-store-netlify-app-contact-2025-01-13-13_18_39](https://github.com/user-attachments/assets/37e5df3d-0af1-4efb-85c3-fb710e551f8b)
+![screencapture-smart-devices-store-netlify-app-cart-2025-01-13-13_19_51](https://github.com/user-attachments/assets/599380e4-6637-43d2-868b-7a80f6dd01ef)
+![screencapture-smart-devices-store-netlify-app-product-management-2025-01-13-13_25_31](https://github.com/user-attachments/assets/869ffd1a-e06f-45a9-af90-afef2eac0f91)
+![screencapture-smart-devices-store-netlify-app-product-management-2025-01-13-13_25_56](https://github.com/user-attachments/assets/ee2c5e4b-868a-403c-9f96-83972593b6fb)
 
 ##
 feel free to reach out and tell your thoughts, I'd be happy to hear from you and learn from your exprerinses.
