@@ -47,4 +47,5 @@ The project is deployed on Netlify. View the live version here: [Smart Devices S
 4. Manage Cart: Update quantities, remove items, or clear the entire cart.
 5. Checkout: Enter valid email and phone number to complete your order.
 
+##
 feel free to reach out and tell your thoughts, I'd be happy to hear from you and learn from your exprerinses.
