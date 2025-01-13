@@ -57,4 +57,4 @@ ScreenShots:
 ![screencapture-smart-devices-store-netlify-app-product-management-2025-01-13-13_25_56](https://github.com/user-attachments/assets/ee2c5e4b-868a-403c-9f96-83972593b6fb)
 
 ##
-feel free to reach out and tell your thoughts, I'd be happy to hear from you and learn from your exprerinses.
+feel free to reach out and tell your thoughts, I'd be happy to hear from you and learn from your experiences.
