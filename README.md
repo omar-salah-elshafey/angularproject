@@ -1,59 +1,50 @@
-# SmartDevicesStore
+# Smart Devices Store
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+This is an e-commerce website built with Angular. 
+It enables users to browse and purchase smart devices like phones and tablets. 
+The app includes features like a cart system, dynamic product display, and a checkout process.
 
-## Development server
+## Live Demo
 
-To start a local development server, run:
+View the live application:  [Smart Devices Store - Live Demo](https://smart-devices-store.netlify.app/)
 
-```bash
-ng serve
-```
+## Features
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Product Management**: Add, edit, and delete products dynamically.
+- **Cart Functionality**: Add products, manage quantities, and calculate total price.
+- **Stock Management**: Automatically decrease stock when orders are placed.
+- **Checkout Process**: Validate email and phone numbers and complete purchases.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Dynamic Routing**: View product details, manage cart, and navigate seamlessly.
 
-## Code scaffolding
+## Technologies Used
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Angular** (with standalone components)
+- **HTML**, **SCSS** for styling
+- **Local Storage** for data persistence
+  
+## Installation
 
-```bash
-ng generate component component-name
-```
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/omar-salah-elshafey/smart-devices-store.git
+2. Navigate to the project directory:
+  cd smart-devices-store
+3. Install dependencies:
+  npm install
+4. Run the app locally:
+  ng serve
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Deployment
 
-```bash
-ng generate --help
-```
+The project is deployed on Netlify. View the live version here: [Smart Devices Store - Live Demo](https://smart-devices-store.netlify.app/)
 
-## Building
+## How to Use
 
-To build the project run:
+1. Browse Products: View available products on the home page and products page.
+2. View Product Details: Click on a product to view detailed information.
+3. Add to Cart: Adjust quantity and add items to your cart.
+4. Manage Cart: Update quantities, remove items, or clear the entire cart.
+5. Checkout: Enter valid email and phone number to complete your order.
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+feel free to reach out and tell your thoughts, I'd be happy to hear from you and learn from your exprerinses.
